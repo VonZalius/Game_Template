@@ -1,0 +1,111 @@
+[gd_scene load_steps=5 format=3 uid="uid://cb3xqymwvyvg5"]
+
+[ext_resource type="Script" path="res://scripts/options.gd" id="1_fl3sl"]
+[ext_resource type="Shader" path="res://shaders/BaseBlur.gdshader" id="1_ny3jd"]
+[ext_resource type="FontFile" uid="uid://nrij3mx3apkq" path="res://assets/BaseFont.otf" id="2_j45tp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ipj4v"]
+shader = ExtResource("1_ny3jd")
+shader_parameter/lod = 2.0
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fl3sl")
+
+[node name="BlurBackground" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ipj4v")
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Options" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="Options"]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 71.0
+offset_right = 959.0
+offset_bottom = 160.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.588235)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_j45tp")
+theme_override_font_sizes/font_size = 70
+text = "Options"
+horizontal_alignment = 1
+
+[node name="Music" type="Label" parent="Options"]
+layout_mode = 0
+offset_left = 439.0
+offset_top = 194.0
+offset_right = 713.0
+offset_bottom = 245.0
+theme_override_fonts/font = ExtResource("2_j45tp")
+theme_override_font_sizes/font_size = 40
+text = "Music"
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="Options/Music"]
+layout_mode = 0
+offset_left = -68.0
+offset_top = 45.0
+offset_right = 342.0
+offset_bottom = 65.0
+max_value = 1.0
+step = 0.01
+
+[node name="Sound" type="Label" parent="Options"]
+layout_mode = 0
+offset_left = 439.0
+offset_top = 281.0
+offset_right = 713.0
+offset_bottom = 332.0
+theme_override_fonts/font = ExtResource("2_j45tp")
+theme_override_font_sizes/font_size = 40
+text = "Sound"
+horizontal_alignment = 1
+
+[node name="SoundSlider" type="HSlider" parent="Options/Sound"]
+layout_mode = 0
+offset_left = -68.0
+offset_top = 45.0
+offset_right = 342.0
+offset_bottom = 65.0
+max_value = 1.0
+step = 0.01
+
+[node name="MarginContainer" type="MarginContainer" parent="Options"]
+layout_mode = 0
+offset_left = 439.0
+offset_top = 386.0
+offset_right = 713.0
+offset_bottom = 458.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options/MarginContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="Options/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_j45tp")
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[node name="MainMenu" type="Button" parent="Options/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_j45tp")
+theme_override_font_sizes/font_size = 50
+text = "Main Menu"
+
+[connection signal="value_changed" from="Options/Music/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Options/Sound/SoundSlider" to="." method="_on_sound_slider_value_changed"]
+[connection signal="pressed" from="Options/MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Options/MarginContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]

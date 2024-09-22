@@ -1,0 +1,37 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Game Template"
+run/main_scene="res://scenes/menu.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/bg_color=Color(7.94157e-07, 0.250093, 0.344016, 1)
+boot_splash/image="res://assets/MadeByQwerty.png"
+boot_splash/fullsize=false
+config/icon="res://assets/MadeByQwerty.png"
+boot_splash/minimum_display_time=3000
+
+[autoload]
+
+Musics="*res://scenes/musics.tscn"
+
+[display]
+
+window/size/mode=3
+window/stretch/mode="canvas_items"
+
+[input]
+
+ui_test_1={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":49,"key_label":0,"unicode":49,"echo":false,"script":null)
+]
+}

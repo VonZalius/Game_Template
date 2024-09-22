@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0u0046aq1np5"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_4t102"]
+[ext_resource type="Texture2D" uid="uid://7ds21hsch3c4" path="res://assets/BaseMenuBackground.png" id="1_ei5b2"]
+[ext_resource type="FontFile" uid="uid://nrij3mx3apkq" path="res://assets/BaseFont.otf" id="2_e5jqo"]
+[ext_resource type="Script" path="res://scripts/paralax.gd" id="3_gq5v3"]
+[ext_resource type="PackedScene" uid="uid://cb3xqymwvyvg5" path="res://scenes/options.tscn" id="4_5tu7v"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4t102")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(1.11515, 1.11515)
+texture = ExtResource("1_ei5b2")
+script = ExtResource("3_gq5v3")
+
+[node name="MainMenu" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="MainMenu"]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 71.0
+offset_right = 959.0
+offset_bottom = 160.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.588235)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_e5jqo")
+theme_override_font_sizes/font_size = 70
+text = "A Template Game"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu"]
+layout_mode = 0
+offset_left = 439.0
+offset_top = 212.0
+offset_right = 713.0
+offset_bottom = 436.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_e5jqo")
+theme_override_font_sizes/font_size = 50
+text = "Play"
+
+[node name="Options" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_e5jqo")
+theme_override_font_sizes/font_size = 50
+text = "Options"
+
+[node name="Quit" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_e5jqo")
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[node name="Options" parent="." instance=ExtResource("4_5tu7v")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
