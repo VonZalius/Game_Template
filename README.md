@@ -24,7 +24,7 @@ This is a basic game template made with Godot 4, providing the essential structu
 
 ## Attribution
 
-If you use this template in your project, it would be great if you could mention me (Zalius) as a source of inspiration or a contributor. I also make my own games and publish them on [itch.io](https://madebyqwerty.itch.io), so feel free to check them out!
+If you use this template in your project, it would be great if you could mention me (Von_Zalius) as a source of inspiration or a contributor. I also make my own games and publish them on [itch.io](https://madebyqwerty.itch.io), so feel free to check them out!
 
 ## Contributions
 
