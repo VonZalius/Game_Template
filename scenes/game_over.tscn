@@ -25,8 +25,9 @@ offset_bottom = 648.0
 
 [node name="GameOver" type="Control" parent="."]
 anchors_preset = 0
+offset_top = 50.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 90.0
 
 [node name="Title" type="Label" parent="GameOver"]
 layout_mode = 0
@@ -40,6 +41,16 @@ theme_override_constants/shadow_offset_y = 5
 theme_override_fonts/font = ExtResource("3_uxu5u")
 theme_override_font_sizes/font_size = 70
 text = "Game Over"
+horizontal_alignment = 1
+
+[node name="ActualScore" type="Label" parent="GameOver"]
+offset_left = 401.0
+offset_top = 198.0
+offset_right = 751.0
+offset_bottom = 249.0
+theme_override_fonts/font = ExtResource("3_uxu5u")
+theme_override_font_sizes/font_size = 40
+text = "Your score is 0 !"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="GameOver"]

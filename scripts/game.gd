@@ -1,10 +1,15 @@
 extends Node2D
 
+var this_score = 0
+
 func _ready():
-	Musics.play_game_music()
+	General.play_game_music()
 # TEST, TO BE DELETED ---------------------------------------------------------
 	print("Loading Game scene")
 # TEST, TO BE DELETED ---------------------------------------------------------
+
+func _process(_delta):
+	$UI/ActualScore.text = "Score : " + str(this_score)
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
@@ -16,7 +21,17 @@ func _input(event):
 # TEST, TO BE DELETED ---------------------------------------------------------
 	if event.is_action_pressed("ui_test_1"):
 		if $GameOver.is_game_over_visible == false:
-			$GameOver.open_game_over($Game, $GameOver)
+			game_over()
 		elif $GameOver.is_game_over_visible == true:
 			$GameOver.close_game_over()
+			
+	if event.is_action_pressed("ui_test_2"):
+		add_score(1)
 # TEST, TO BE DELETED ---------------------------------------------------------
+
+func game_over():
+	$GameOver.final_score(this_score)
+	$GameOver.open_game_over($Game, $GameOver)
+	
+func add_score(points):
+	this_score += points

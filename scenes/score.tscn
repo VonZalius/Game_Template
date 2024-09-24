@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck2td1dwlbwf4"]
+
+[ext_resource type="Script" path="res://scripts/score.gd" id="1_rob2s"]
+[ext_resource type="Shader" path="res://shaders/BaseBlur.gdshader" id="2_i17o7"]
+[ext_resource type="FontFile" uid="uid://nrij3mx3apkq" path="res://assets/BaseFont.otf" id="3_jssob"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bed2e"]
+shader = ExtResource("2_i17o7")
+shader_parameter/lod = 2.0
+
+[node name="Score" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rob2s")
+
+[node name="BlurBackground" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_bed2e")
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Score" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 50.0
+offset_right = 40.0
+offset_bottom = 90.0
+
+[node name="Title" type="Label" parent="Score"]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 71.0
+offset_right = 959.0
+offset_bottom = 160.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.588235)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("3_jssob")
+theme_override_font_sizes/font_size = 70
+text = "Score"
+horizontal_alignment = 1
+
+[node name="ActualScore" type="Label" parent="Score"]
+layout_mode = 0
+offset_left = 401.0
+offset_top = 153.0
+offset_right = 751.0
+offset_bottom = 420.0
+theme_override_constants/line_spacing = -7
+theme_override_fonts/font = ExtResource("3_jssob")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Score"]
+layout_mode = 0
+offset_left = 439.0
+offset_top = 386.0
+offset_right = 713.0
+offset_bottom = 458.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Score/MarginContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="Score/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jssob")
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[connection signal="pressed" from="Score/MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

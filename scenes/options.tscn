@@ -25,8 +25,9 @@ offset_bottom = 648.0
 
 [node name="Options" type="Control" parent="."]
 anchors_preset = 0
+offset_top = 50.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 90.0
 
 [node name="Title" type="Label" parent="Options"]
 layout_mode = 0

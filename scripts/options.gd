@@ -7,23 +7,23 @@ var before_node
 var is_options_visible = false
 
 func _ready():
-	$Options/Music/MusicSlider.value = Musics.music_volum
-	Musics.change_music_volum( Musics.music_volum)
-	$Options/Sound/SoundSlider.value = Musics.sound_volum
-	Musics.change_sound_volum(Musics.sound_volum)
+	$Options/Music/MusicSlider.value = General.music_volum
+	General.change_music_volum( General.music_volum)
+	$Options/Sound/SoundSlider.value = General.sound_volum
+	General.change_sound_volum(General.sound_volum)
 
 func _on_music_slider_value_changed(value):
-	Musics.change_music_volum(value)
+	General.change_music_volum(value)
 
 func _on_sound_slider_value_changed(value):
-	Musics.change_sound_volum(value)
+	General.change_sound_volum(value)
 
 func _on_back_pressed():
-	Musics.play_clic_sound()
+	General.play_clic_sound()
 	close_options()
 	
 func _on_main_menu_pressed():
-	Musics.play_clic_sound()
+	General.play_clic_sound()
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 	
 func open_options(node_to_hide, node_to_show, show_main_menu):

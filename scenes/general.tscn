@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj3bn8twrw2d3"]
+
+[ext_resource type="Script" path="res://scripts/general.gd" id="1_qhn4s"]
+[ext_resource type="AudioStream" uid="uid://ds00rqqegdnff" path="res://assets/BaseMenuMusic.mp3" id="2_fr1io"]
+[ext_resource type="AudioStream" uid="uid://bhlrtrs4orpsu" path="res://assets/BaseGameMusic.mp3" id="3_4ddmf"]
+[ext_resource type="AudioStream" uid="uid://bm0ihjkepv3yx" path="res://assets/BaseClic.mp3" id="4_e7ejr"]
+
+[node name="General" type="Node"]
+script = ExtResource("1_qhn4s")
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fr1io")
+volume_db = 10.0
+bus = &"Music"
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4ddmf")
+bus = &"Music"
+
+[node name="ClicSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_e7ejr")
+bus = &"Sound"
