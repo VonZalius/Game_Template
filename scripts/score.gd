@@ -27,5 +27,5 @@ func close_score():
 func charge_actual_score():
 	var actual_score = General.load_scores()
 	for i in range(max_display):
-		if(actual_score[i] != 0):
-			$Score/ActualScore.text += str(actual_score[i]) + "\n"
+		if(i < actual_score.size() && actual_score[i] != 0):
+				$Score/ActualScore.text += str(actual_score[i]) + "\n"

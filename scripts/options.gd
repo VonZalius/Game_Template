@@ -7,10 +7,10 @@ var before_node
 var is_options_visible = false
 
 func _ready():
-	$Options/Music/MusicSlider.value = General.music_volum
-	General.change_music_volum( General.music_volum)
 	$Options/Sound/SoundSlider.value = General.sound_volum
 	General.change_sound_volum(General.sound_volum)
+	$Options/Music/MusicSlider.value = General.music_volum
+	General.change_music_volum( General.music_volum)
 
 func _on_music_slider_value_changed(value):
 	General.change_music_volum(value)

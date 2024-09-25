@@ -44,6 +44,7 @@ text = "Game Over"
 horizontal_alignment = 1
 
 [node name="ActualScore" type="Label" parent="GameOver"]
+layout_mode = 0
 offset_left = 401.0
 offset_top = 198.0
 offset_right = 751.0

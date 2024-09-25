@@ -49,7 +49,10 @@ func load_settings():
 		music_volum = config.get_value("audio", "music_volum", 0.7)  # 0.7 est la valeur par défaut
 		sound_volum = config.get_value("audio", "sound_volum", 0.7)
 	else:
-		print("Fichier de configuration introuvable, utilisation des valeurs par défaut")
+		music_volum = 0.7
+		sound_volum = 0.7
+		save_settings()
+		load_settings()
 
 func save_settings():
 	var config = ConfigFile.new()

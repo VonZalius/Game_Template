@@ -19,6 +19,7 @@ script = ExtResource("1_rob2s")
 
 [node name="BlurBackground" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_bed2e")
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
